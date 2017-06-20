@@ -1,0 +1,72 @@
+
+<%= form_for(todo) do |f| %>
+
+  <% if todo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+
+      <ul>
+      <% todo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+        
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <span class="label"> Created_by : </span> <span class="label"> <%= current_user.name %> </span>
+            
+        <span class="Success label  round  ">  <%= @sprint.version %> </span>
+ 
+        <%= f.hidden_field :sprint_id, :value => @sprint.id %>
+        
+
+   </div>
+
+
+  
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name , :required => true %>
+  </div>
+
+  
+  <div class="field">
+    <%= f.label :state_date %>
+    <%= f.date_select :state_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description , :required => true %>
+  </div>
+
+
+ <div class="field">
+     <%= f.label :Assign_to %>
+    <%= f.select :assignuser, options_from_collection_for_select(   User.where(organization_id:@sprint.organization_id)  , "id", "name") %>
+</div>
+
+
+
+
+
+  <div class="field">
+    <%= f.label :status %>
+    
+  
+      <%= f.select :status, options_for_select(["Select One", "Not Start", "Working", "Complete"],:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
+ </div>
+
+
+
+
+  
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

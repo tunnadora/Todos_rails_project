@@ -1,0 +1,33 @@
+
+<h1  class="button large round"> <%= Organization.find_by(id: @organization.id).name  %>   : Sprints</h1>
+
+<%= link_to 'New Sprint', new_sprint_path(organization_id: @organization),class:"button alert round " , style:"margin-left:330px;" %>
+
+<table class="pricing-table">
+  <thead >
+    <tr>
+      <th  class="title">Version</th>
+      <th  class="title">Organization Name</th>
+      <th colspan="4" class="title">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sprints.each do |sprint| %>
+      <tr>
+        <td class="bullet-item" ><%= sprint.version %></td>
+
+        <td class="bullet-item"><%= Organization.find_by(id:sprint.organization_id).name %></td>
+
+        
+        <td ><%= link_to 'Todos', todos_path(sprint_id: sprint.id) , class:"button tiny round secondary"%></td>
+        <td ><%= link_to 'Show', sprint ,class:"button success "%></td>
+        <td><%= link_to 'Edit', edit_sprint_path(sprint , organization_id: @organization.id ),class:"button success " %></td>
+        <td><%= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' } ,class:"button success "%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

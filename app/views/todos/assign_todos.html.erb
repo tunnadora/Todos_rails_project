@@ -1,0 +1,38 @@
+<h1>Todos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>State date</th>
+      <th>Description</th>
+      <th>Assign to</th>
+      <th>User</th>
+      <th>Status</th>
+      <th>Sprint</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+     <% if current_user.id== todo.assignuser %>  
+
+      <tr>
+        <td><%= todo.name %></td>
+        <td><%= todo.state_date %></td>
+        <td><%= todo.description %></td>
+
+        <td><%= User.find_by(id:todo.assignuser).name %></td>
+        <td><%= User.find_by(id:todo.user_id).name %></td>
+
+        <td><%= todo.status %></td>
+        <td><%= Sprint.find_by(id:todo.sprint_id).version %></td>
+
+        
+        </td>
+      </tr>
+     <% end %>
+    <% end %>
+  </tbody>
+</table>

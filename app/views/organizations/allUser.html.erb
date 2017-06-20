@@ -1,0 +1,43 @@
+
+
+<table>
+  <caption>All the Users Data..</caption>
+  <tr>
+    <th scope="column">Id</th>
+    <th scope="column">Email</th>
+    <th scope="column">Name</th>
+    <th scope="column">Role</th>
+    <th scope="column">Admin</th>
+    <th scope="column">Org_id</th>
+    <th>..</th>
+  </tr>
+  
+
+ <% @users.each do |ur| %>
+
+        <tr>
+          <td> <%= ur.id    %> </td>
+          <td> <%= ur.email %> </td>
+          <td> <%= ur.name  %> </td>
+          <td> <%= ur.role  %> </td>
+          <td> <%= ur.admin %> </td>
+          <td> <%= ur.organization_id %> </td>
+          <td>
+              <%  if ur.admin ==true %>
+              <a href="#" class="button tiny success  ">Admin</a>
+                  
+               <% else %>
+      <!--  -->
+                <% end %>  
+
+
+              
+          </td>   
+
+        </tr>
+ <% end %>
+
+
+
+</table>
+

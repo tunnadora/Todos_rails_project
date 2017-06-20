@@ -1,0 +1,20 @@
+
+<p>
+<strong>Organization id:</strong>
+  <%= @sprint.organization_id %>
+<hr/>
+
+<strong>Organization name:</strong>
+  <%= Organization.find_by(id:@sprint.organization_id).name  %>
+
+
+
+
+<hr/>
+
+  <strong>Version:</strong>
+  <%= @sprint.version %>
+  
+</p>
+<%= link_to 'Edit', edit_sprint_path(@sprint , organization_id: @sprint.organization_id ) %> |
+<%= link_to 'Back', sprints_path(organization_id: @sprint.organization_id) %>

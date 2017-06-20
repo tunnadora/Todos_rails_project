@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  state_date: 2017-06-09
+  description: MyText
+  assign_to: MyString
+  user_id: 1
+  status: MyString
+  sprint_id: 1
+
+two:
+  name: MyString
+  state_date: 2017-06-09
+  description: MyText
+  assign_to: MyString
+  user_id: 1
+  status: MyString
+  sprint_id: 1

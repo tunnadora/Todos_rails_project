@@ -1,0 +1,51 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= background_image
+ *= require_tree .
+ *= require_self
+ //= require foundation_and_overrides
+  
+ */
+
+
+
+.pagination {
+    font-size: 15px;
+}
+
+.pagination > * {
+    margin-right: 0.1em;
+    padding: 0.3em 0.4em;
+}
+
+.pagination a:hover {
+    background: #202020 none repeat scroll 0 0;
+    text-shadow: 1px 1px 1px green;
+}
+
+.pagination a:active {
+    text-shadow: none;
+}
+
+.pagination .current {
+    background: yellow none repeat scroll 0 0;
+    color: red;
+    text-shadow: 1px 1px 1px red;
+    border: 1px outset blue;
+    border-radius: 125px;
+}
+
+.pagination .disabled {
+    color: #C0C0C0;
+}
+
+

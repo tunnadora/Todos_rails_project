@@ -1,0 +1,34 @@
+<h1>All User</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th width="100">User Id</th>
+      <th width="200">Organization Name</th>
+      <th width="150">Email</th>
+      <th width="150">Name</th>
+      <th width="150">Admin ?</th>
+       <th width="150">Admin Change..</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+ <% @user.each do |ur| %>
+      <tr>
+        <td ><%= ur.id %></td>
+        <td ><%= Organization.find_by(id:ur.organization_id).name %></td>
+        <td ><%= ur.email %></td>
+         <td ><%= ur.name %></td>
+         <td ><%= ur.admin %></td>
+        <% if ur.admin==false%>
+          <td><%= link_to 'User', some_path(user_id: ur.id) %> </td>
+        <% else %>
+        <td><%= link_to 'Admin', some_path(user_id: ur.id) %> </td>
+        <% end %>  
+      </tr>
+    <% end %>
+
+
+  </tbody>
+</table>

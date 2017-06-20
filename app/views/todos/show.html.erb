@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @todo.name %>
+</p>
+
+<p>
+  <strong>State date:</strong>
+  <%= @todo.state_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @todo.description %>
+</p>
+
+<p>
+  <strong>Assign to:</strong>
+  <%= User.find_by(id:@todo.assignuser).name %>
+
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= User.find_by(id:@todo.user_id).name %>
+   
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @todo.status %>
+</p>
+
+<p>
+  <strong>Sprint:</strong>
+  <%= @todo.sprint_id %>
+</p>
+<%= link_to 'Edit', edit_todo_path(@todo , sprint_id: @todo.sprint_id ) %>|
+<%= link_to 'Back', todos_path(sprint_id: @todo.sprint_id) %>
